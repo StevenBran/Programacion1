@@ -2,23 +2,32 @@
 #include <conio.h>
 #include <string>
 using namespace std;
+
+struct nodo {
+	int dato;
+	nodo* siguiente;
+} *primero, *ultimo;
+
+
 void giancarlo();
 
-
-
-
-
+//PARTE DE STEVEN
+void IngresarListaCircularSimple(int numero);
+void MostarListaCircularSimple();
+//FIN PARTE DE STEVEN
 
 
 int main() {
-	int opcion_menu = 0;
-
+	int nro, opcion_menu = 0;
 	while (opcion_menu != 6) {
+		cout << "Digite un numero para guardarlo en memoria dinamica" << endl; cin >> nro;
+		IngresarListaCircularSimple(nro);
+
 		cout << "\n|-----------------------------------------------------|";
 		cout << "\n|            ° OPCIONES PARA MOSTRAR °                |";
 		cout << "\n|--------------------|--------------------------------|";
 		cout << "\n| 1. COLA            | 4. LISTA DOBLEMENTE ENLAZADA   |";
-		cout << "\n| 2. PILA            | 5. LISTA CIRCULAR              |";
+		cout << "\n| 2. PILA            | 5. LISTA CIRCULAR SIMPLE       |";
 		cout << "\n| 3. LISTA SIMPLE    | 6. SALIR                       |";
 		cout << "\n|-----------------------------------------------------|";
 		cout << "\n\n ESCOJA UNA OPCION: ";
@@ -42,6 +51,7 @@ int main() {
 			break;
 		case 5:
 			cout << "\n\n MODO LISTA CIRCULAR \n\n";
+			MostarListaCircularSimple();
 
 			break;
 		case 6:
@@ -55,3 +65,35 @@ int main() {
 	
 	_getch();
 }
+
+void IngresarListaCircularSimple(int numero) {
+	nodo* nuevo = new nodo();
+	nuevo->dato = numero;
+	if (primero == NULL) {
+		primero = nuevo;
+		primero->siguiente = primero;
+		ultimo = primero;
+	}
+	else {
+		ultimo->siguiente = nuevo;
+		nuevo->siguiente = primero;
+		ultimo = nuevo;
+	}
+}
+
+void MostarListaCircularSimple() {
+		nodo* actual = new nodo();
+		actual = primero;
+		if (primero != NULL) {
+			do {
+				cout << "\n" << actual->dato;
+				actual = actual->siguiente;
+			} while (actual != primero);
+		}
+		else {
+			cout << "\n\n La Lista se encuentra vacia\n\n";
+		}
+		cout << "\n\n";
+		system("pause");
+		system("cls");
+	}
