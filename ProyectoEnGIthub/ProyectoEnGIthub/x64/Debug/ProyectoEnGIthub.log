@@ -1,2 +1,4 @@
 ﻿  Source.cpp
-  ProyectoEnGIthub.vcxproj -> C:\Users\Steven Bran\Documents\GitHub\Programacion 1\Programacion1\ProyectoEnGIthub\x64\Debug\ProyectoEnGIthub.exe
+c:\users\dabar\desktop\cursos umg\programacion1\proyectoengithub\proyectoengithub\source.cpp(52): error C2065: 'p': undeclared identifier
+c:\users\dabar\desktop\cursos umg\programacion1\proyectoengithub\proyectoengithub\source.cpp(113): error C2082: redefinition of formal parameter 'p'
+c:\users\dabar\desktop\cursos umg\programacion1\proyectoengithub\proyectoengithub\source.cpp(114): error C2065: 'nro': undeclared identifier

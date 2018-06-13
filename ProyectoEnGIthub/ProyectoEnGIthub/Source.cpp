@@ -6,7 +6,7 @@ using namespace std;
 struct nodo {
 	int dato;
 	nodo* siguiente;
-} *primero, *ultimo;
+} *primero, *ultimo, *xPtr;
 
 
 void giancarlo();
@@ -15,6 +15,11 @@ void giancarlo();
 void IngresarListaCircularSimple(int numero);
 void MostarListaCircularSimple();
 //FIN PARTE DE STEVEN
+
+//PARTE DAVID
+void IngresarListaSimple(nodo *p);
+void MostrarListaSimple(nodo *i);
+//FIN PARTE DE DAVID
 
 
 int main() {
@@ -43,6 +48,9 @@ int main() {
 			break;
 		case 3:
 			cout << "\n\n MODO LISTA SIMPLE \n\n";
+			
+			IngresarListaSimple(p);
+			MostrarListaSimple(xPtr);
 
 			break;
 		case 4:
@@ -97,3 +105,19 @@ void MostarListaCircularSimple() {
 		system("pause");
 		system("cls");
 	}
+
+void IngresarListaSimple(nodo *p) {
+	p->siguiente = xPtr;
+	xPtr = p;
+
+	nodo *p = new nodo;
+	p->dato = nro;
+}
+
+void MostrarListaSimple(nodo *i) {
+	nodo *p = i;
+	while (p != NULL){
+		cout << p->dato << endl;
+		p = p->siguiente;
+}
+}
