@@ -9,7 +9,7 @@ struct nodo {
 } *primero, *ultimo, *xPtr;
 
 
-void giancarlo();
+
 
 //PARTE DE STEVEN
 void IngresarListaCircularSimple(int numero);
@@ -21,13 +21,20 @@ void IngresarListaSimple(nodo *p);
 void MostrarListaSimple(nodo *i);
 //FIN PARTE DE DAVID
 
+void ingresarcola(nodo*,nodo*,int);
+bool cola_vacia(nodo *);
+void ingresarpila();
+void mostrarcola();
+void mostrarpila();
 
 int main() {
-	int nro, opcion_menu = 0;
+	int nro, n, opcion_menu = 0;
+	nodo *frente = NULL;
+	nodo *fin = NULL;
 	while (opcion_menu != 6) {
 		cout << "Digite un numero para guardarlo en memoria dinamica" << endl; cin >> nro;
 		IngresarListaCircularSimple(nro);
-
+		ingresarcola( *frente, *fin, nro);
 		cout << "\n|-----------------------------------------------------|";
 		cout << "\n|            ° OPCIONES PARA MOSTRAR °                |";
 		cout << "\n|--------------------|--------------------------------|";
@@ -120,4 +127,42 @@ void MostrarListaSimple(nodo *i) {
 		cout << p->dato << endl;
 		p = p->siguiente;
 }
+}
+
+void ingresarcola(nodo*&frente, nodo*&fin, int n)
+{
+	nodo *nuevo = new nodo();
+	nuevo->dato = n;
+	nuevo->siguiente = NULL;
+	if (cola_vacia(frente))
+	{
+		frente = nuevo;
+	}
+	else
+	{
+		fin->siguiente = nuevo;
+	}
+	fin = nuevo;
+	
+}
+
+bool cola_vacia(nodo*frente)
+{
+	return(frente == NULL) ? true : false;
+}
+
+void mostrarcola()
+{
+	while (frente != NULL)
+	{
+		suprimircola(frente, fin, dato);
+		if (frente != NULL)
+		{
+			cout << dato << ",";
+		}
+		else
+		{
+			cout << "dato" << ",";
+		}
+	}
 }
